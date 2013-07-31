@@ -51,7 +51,7 @@ class Gchart
     def #{type}(options = {})
       # Start with theme defaults if a theme is set
       theme = options[:theme]
-      options = theme ? Chart::Theme.load(theme).to_options.merge(options) : options 
+      options = theme ? Google::Chart::Theme.load(theme).to_options.merge(options) : options 
       # # Extract the format and optional filename, then clean the hash
       format = options[:format] || 'url'
       options[:filename] ||= default_filename
@@ -75,7 +75,7 @@ class Gchart
   def initialize(options={})
     # Allow Gchart to take a theme too
     @theme = options[:theme] 
-    options = @theme ? Chart::Theme.load(@theme).to_options.merge(options) : options
+    options = @theme ? Google::Chart::Theme.load(@theme).to_options.merge(options) : options
     options.delete(:theme)
 
     @type = options[:type] || 'line'
